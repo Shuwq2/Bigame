@@ -1,20 +1,21 @@
 def show_menu():
     # afficher les différentes options
-    ...
+    print("Bienvenue sur BlackCloverTT")
+    print("1 - Lancer une partie")
+    print("2 - Afficher le classement")
+    print("3 - Quitter")
 
-def user_choice():
-    # prendre le choix utilisateur 
-    # verifier si le choix est valid
-    # renvoyer le choix
-    ...
-
-def valid_choice():
-    # Si le choix est bien compris entre 1 et 3
-    # retourne le choix
-    ...
+def valid_choice(choix):
+        while choix < 1 or choix > 3:
+        # Si le choix est pas compris entre 1 et 3
+            print("Veuillez rentrer un chiffre valide")
+        # retourne le choix
+        else :
+            return choix
 
 def start_game():
     # selectionner un nom de joueur
+    choose_name()
     # afficher les personnages disponible
     # choix des personnages de l'équipe
     # choix random de l'adversaire
@@ -28,16 +29,22 @@ def create_team():
     ...
 
 def choose_name():
-    # Choisir son nom d'utilisateur
-    # Verifier si le nom est valide
-    # pas valide, on recommence (boucle)
-    ...
+    while True :
+        # Choisir son nom d'utilisateur
+        print("Votre pseudo doit faire en 3 et 10 charactères")
+        teamname = print(input("Quelles est votre pseudonyme"))
+        # Verifier si le nom est valide
+        valid_username(teamname)
+        # pas valide, on recommence (boucle)
+        ...
 
-def valid_username():
-    # Si le nom est 
-        # supérieur à 3 charactère et inferieur à 10 charactère 
-        # retourn le nom 
-    ...
+def valid_username(teamname):
+    #tant que supérieur à 3 charactère et inferieur à 10 charactère 
+    while len(teamname) >= 3 or len(teamname) <= 10:
+        return teamname
+    else:
+        print("Le nom n'est pas valide")
+            # retourn le nom 
 
 
 def available_characters():
@@ -104,3 +111,34 @@ def enemy_dead():
     # retourner Vrai
     ...
 
+
+def show_classement():
+    # Afficher 3 meilleurs parties jouer 
+    ...
+    
+
+
+def main():
+    # Affichage menu
+    show_menu()
+
+    choix = int(input("Que voulez-vous faire [1-3]?"))
+
+    # Verifier le choix
+    valid_choice(choix)
+
+    # Lancer une partie
+    if choix == 1:
+        start_game()
+
+    # Afficher le classement
+    if choix == 2:
+        show_classement()
+
+    # Quitter
+    if choix == 3:
+        print("Aurevoir")
+        quit()
+    ...
+
+main()
