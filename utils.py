@@ -15,8 +15,6 @@ def menu():
 #       afficher numero element et texte element
         print(f"{index}. {valeur}")
 
-menu()
-
 # Choix (options, erreur)
 def choice(options, erreur):
 #    while True:
@@ -24,15 +22,21 @@ def choice(options, erreur):
 #       Recuperer choix utilisateur
         user_choice = input("Choisissez une option : [1 - 3]")
 #        Verifier si choix est valide
-        choice_isvalid(user_choice)
+        if choice_isvalid(user_choice):
+            return user_choice
+        #        Sinon
+#             Lancer fonction erreur
+        else:
+            erreur()
 
 def choice_isvalid(user_choice):
 #        Si valide
-    
-    ...
+        if user_choice ... :
 #             return choix
-#        Sinon
-#             Lancer fonction erreur
+                return user_choice
+
+def erreur():
+     print("Choix invalide. Veuillez réessayer.")
 
 # Process
 #    JEU
@@ -91,3 +95,10 @@ def choice_isvalid(user_choice):
 #        Affiche les score
 #    Quitter
 #       sys.exit()
+
+
+def main():
+     menu()
+     choice([1, 2, 3], erreur)
+
+main()
