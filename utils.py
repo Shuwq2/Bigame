@@ -41,18 +41,14 @@ def is_valid_choice(choice,option):
 
 # Choix (options, erreur)
 def get_choice(options, erreur):
-   from InquirerPy import inquirer
-   from InquirerPy.base import Choice
-
    while True:
-       user_choice = inquirer.select(message ="Choisissez une action", choices=[Choice("start", "Lancer le jeu"),Choice ("lead", "Afficher les scores"),Choice ("quit", "Quittez le Jeux"),]).execute
-       return user_choice
+       user_choice = input(f"Choisissez une option 1 - {len(options)}: ")
     #    Verifier si choix est valide
-    #    if is_valid_choice(user_choice, options):
-    #        return int(user_choice)
-    #     #    Sinon
-    #     # Lancer fonction erreur
-    #    erreur()
+       if is_valid_choice(user_choice, options):
+           return int(user_choice)
+        #    Sinon
+        # Lancer fonction erreur
+       erreur()
 
 
 def erreur():
